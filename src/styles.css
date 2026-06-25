@@ -1,0 +1,190 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Pride */
+  --color-pride-red: var(--pride-red);
+  --color-pride-orange: var(--pride-orange);
+  --color-pride-yellow: var(--pride-yellow);
+  --color-pride-green: var(--pride-green);
+  --color-pride-blue: var(--pride-blue);
+  --color-pride-violet: var(--pride-violet);
+
+  /* Sevilla */
+  --color-cal: var(--cal);
+  --color-grafito: var(--grafito);
+  --color-arena: var(--arena);
+  --color-terracota: var(--terracota);
+
+  --font-display: "Archivo Black", "Bowlby One", system-ui, sans-serif;
+  --font-sans: "DM Sans", "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.25rem;
+
+  --background: oklch(0.985 0.008 85);     /* Blanco Cal #F8F6F2 */
+  --foreground: oklch(0.18 0.005 270);     /* Negro Grafito #1F1F1F */
+
+  --card: oklch(1 0 0);
+  --card-foreground: var(--foreground);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--foreground);
+
+  --primary: oklch(0.18 0.005 270);
+  --primary-foreground: oklch(0.985 0.008 85);
+
+  --secondary: oklch(0.86 0.05 80);        /* Arena */
+  --secondary-foreground: var(--foreground);
+
+  --muted: oklch(0.94 0.012 80);
+  --muted-foreground: oklch(0.42 0.01 270);
+
+  --accent: oklch(0.62 0.18 35);           /* Terracota */
+  --accent-foreground: oklch(0.985 0.008 85);
+
+  --destructive: oklch(0.58 0.24 28);
+  --destructive-foreground: oklch(0.985 0.008 85);
+
+  --border: oklch(0.18 0.005 270);
+  --input: oklch(0.85 0.01 80);
+  --ring: oklch(0.62 0.18 35);
+
+  --pride-red: oklch(0.58 0.24 28);
+  --pride-orange: oklch(0.72 0.18 55);
+  --pride-yellow: oklch(0.92 0.18 100);
+  --pride-green: oklch(0.55 0.17 145);
+  --pride-blue: oklch(0.48 0.24 265);
+  --pride-violet: oklch(0.4 0.22 305);
+
+  --cal: oklch(0.985 0.008 85);
+  --grafito: oklch(0.18 0.005 270);
+  --arena: oklch(0.86 0.05 80);
+  --terracota: oklch(0.62 0.18 35);
+
+  --shadow-brutal: 6px 6px 0 0 var(--foreground);
+  --shadow-brutal-sm: 3px 3px 0 0 var(--foreground);
+}
+
+.dark {
+  --background: oklch(0.16 0.008 270);
+  --foreground: oklch(0.97 0.01 85);
+
+  --card: oklch(0.22 0.012 270);
+  --card-foreground: var(--foreground);
+
+  --popover: oklch(0.22 0.012 270);
+  --popover-foreground: var(--foreground);
+
+  --primary: oklch(0.97 0.01 85);
+  --primary-foreground: oklch(0.16 0.008 270);
+
+  --secondary: oklch(0.3 0.04 50);
+  --secondary-foreground: var(--foreground);
+
+  --muted: oklch(0.26 0.015 270);
+  --muted-foreground: oklch(0.72 0.02 80);
+
+  --accent: oklch(0.7 0.2 40);
+  --accent-foreground: oklch(0.16 0.008 270);
+
+  --destructive: oklch(0.68 0.22 25);
+  --destructive-foreground: oklch(0.97 0.01 85);
+
+  --border: oklch(0.97 0.01 85);
+  --input: oklch(0.3 0.015 270);
+  --ring: oklch(0.7 0.2 40);
+
+  --pride-yellow: oklch(0.88 0.18 100);
+
+  --cal: oklch(0.16 0.008 270);
+  --grafito: oklch(0.97 0.01 85);
+
+  --shadow-brutal: 6px 6px 0 0 var(--foreground);
+  --shadow-brutal-sm: 3px 3px 0 0 var(--foreground);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+  }
+}
+
+@utility shadow-brutal {
+  box-shadow: var(--shadow-brutal);
+}
+@utility shadow-brutal-sm {
+  box-shadow: var(--shadow-brutal-sm);
+}
+@utility border-brutal {
+  border: 2px solid var(--color-border);
+}
+@utility text-stroke {
+  -webkit-text-stroke: 2px var(--color-foreground);
+  color: transparent;
+}
+
+@utility pride-stripe {
+  background: linear-gradient(
+    90deg,
+    var(--pride-red) 0 16.66%,
+    var(--pride-orange) 16.66% 33.33%,
+    var(--pride-yellow) 33.33% 50%,
+    var(--pride-green) 50% 66.66%,
+    var(--pride-blue) 66.66% 83.33%,
+    var(--pride-violet) 83.33% 100%
+  );
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@utility animate-marquee {
+  animation: marquee 30s linear infinite;
+}
